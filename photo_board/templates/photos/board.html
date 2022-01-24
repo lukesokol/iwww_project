@@ -1,0 +1,42 @@
+{% extends 'photos/base.html' %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid" style="min-height: 100vh">
+        <div class="row-fluid">
+            <div class="card-columns">
+            {% for photo in photos %}
+                    <div class="card shadow-sm">
+                        <div class="card-parent">
+                            <img class="card-img-top" src="{{ photo.image.url }}" alt="...">
+                            <div class="card-category p-1" style="text-align: center;">
+                                <b>Category: </b>{{ photo.category.name }}
+                            </div>
+                        </div>
+                        <div class="bg-light card-hover" style="display: flex; flex-direction: column">
+                            <div class="card-info">
+                                <div class="mx-3" style="text-align: right; align-content: center">
+                                    <strong>{{ photo.views }}</strong><span data-feather="eye" style="width: 16px; margin-left: 3px;"></span>
+                                    <strong id="like_count{{ photo.id }}" style="margin-left: 4px">{{ photo.likes }}</strong><span data-feather="thumbs-up" style="width: 13px; margin-left: 3px;"></span>
+                                </div>
+                                <div style="font-size: 12px; margin: 0 0.25rem 0 auto;">
+                                    <button  class="like_btn btn btn-dark py-1" type="button" style="font-size: 12px; margin: 0 0.25rem 0 auto;">
+                                        <span data-feather="share" style="width: 13px"></span>
+                                    </button>
+                                    <button id="like_btn{{ photo.id }}" class="like_btn btn btn-dark py-1" data-photoid="{{ photo.id }}" type="button" style="font-size: 12px; margin: 0 0 0 auto;">
+                                        <span data-feather="thumbs-up" style="width: 13px"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                        </div>
+                    </div>
+                {% empty %}
+                <h3>No photos...</h3>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

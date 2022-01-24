@@ -1,0 +1,20 @@
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'board' %}">
+        <span data-feather="archive"></span>All
+    </a>
+</li>
+{% for category in categories %}
+    {% if category == current_category %}
+    <li class="nav-item">
+        <a class="nav-link active" href="{% url 'board' %}?category={{ category.name }}">
+            <span data-feather="archive"></span>{{ category.name }}
+        </a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'board' %}?category={{ category.name }}">
+            <span data-feather="archive"></span>{{ category.name }}
+        </a>
+    </li>
+    {% endif %}
+{% endfor %}

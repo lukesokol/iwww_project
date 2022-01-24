@@ -1,0 +1,56 @@
+.photo-info {
+    padding: 15px;
+    margin-bottom: auto;
+    border: solid 3px #d3d3d3;
+    border-radius: 10px;
+    margin-left: 2rem;
+}
+
+.profile-pic {
+    max-height: 30px;
+}
+
+.card-info {
+    display: inline-flex;
+    align-items: center;
+    padding-top: 6px;
+    border-top: solid 1px lightgrey;
+}
+
+#share {
+    text-decoration: none;
+    color: black;
+}
+
+.card-hover {
+    opacity: 50%;
+    transition: 300ms ease-in-out;
+}
+
+.card:hover .card-hover {
+    opacity: 100%;
+    transition: 300ms ease-in-out;
+}
+
+.card:hover .card-category {
+    opacity: 100%;
+    transition: 300ms ease-in-out;
+}
+
+.card-parent {
+    position: relative;
+}
+
+.card-category {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    opacity: 50%;
+    transition: 300ms ease-in-out;
+}
+
+.card-columns {
+    column-count: 5;
+}

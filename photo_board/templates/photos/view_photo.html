@@ -1,0 +1,42 @@
+{% extends 'photos/base.html' %}
+
+{% block title_block %}
+    {{ photo.description }}
+{% endblock %}
+
+{% block body_block %}
+    <div class="jumbotron p-4">
+        <div class="container" style="text-align: center">
+            <h1 class="jumbotron-heading">{{ photo.description }}</h1>
+        </div>
+    </div>
+    <div class="container" style="min-height: 90vh">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'board' %}" class="btn btn-dark my-3"><span data-feather="chevron-left"></span>Go Back</a>
+                <div style="display: flex">
+                    <div>
+                        <img style="max-width: 100%; max-height: 100%;" src="{{ photo.image.url }}" />
+                    </div>
+                    <div class="photo-info shadow">
+                        <p>
+                            <b>Uploaded by: </b>
+                            {% if user_profile.picture %}
+                            <a href="{% url 'profile' photo.author %}">
+                                <img class="m-1 profile-pic" src="{{ MEDIA_URL }}{{ user_profile.picture }}" alt="{{ selected_user.username }}'s profile image" />
+                            {% else %}
+                            <a href="{% url 'profile' photo.author %}">
+                                <img class="m-1 profile-pic" src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="Placeholder image" />
+                            {% endif %}
+                            {{ photo.author }}
+                            </a>
+                        </p>
+                        <p><b>Created: </b><small>{{ photo.created_at }}</small></p>
+                        <p><b>Updated: </b><small>{{ photo.updated_at }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4"></div>
+    </div>
+{% endblock %}

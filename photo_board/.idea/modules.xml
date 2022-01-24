@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/photo_board.iml" filepath="$PROJECT_DIR$/.idea/photo_board.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../STUDIA/Semestr 3/IWWW/Django/tango_with_django_project/.idea/tango_with_django_project.iml" filepath="$PROJECT_DIR$/../../../STUDIA/Semestr 3/IWWW/Django/tango_with_django_project/.idea/tango_with_django_project.iml" />
+    </modules>
+  </component>
+</project>
