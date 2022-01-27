@@ -7,12 +7,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        <meta name="description" content="Share memes with your friends!">
         <meta name="author" content="Łukasz Sokołowski">
-        <meta name="generator" content="Jekyll v3.8.5">
-        <link rel="icon" href="{% static 'images/favicon.ico' %}">
         <title>
-            Photo Board - {% block title_block %} Hello! {% endblock %}
+            Super Photos - {% block title_block %} Hello! {% endblock %}
         </title>
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,8 +20,8 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark p-0">
-                <a class="navbar-brand p-2" href="{%  url 'board' %}">Photo Board</a>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top p-0" style="background-color: #511281;">
+                <a class="navbar-brand p-2" href="{%  url 'board' %}" style="background-color: #21094E;"><img class="logo" src="{% static 'svg/logo.svg' %}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,11 +32,13 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'add_photo' %}">Add Photo</a></li>
                         {% endif %}
                         {% if user.is_authenticated %}
-                        <div style="display:flex; margin-right: 20px; margin-left: auto; align-items: center">
-                            {% if user_profile.picture %}
-                            <img class="m-1 profile-pic" src="{{ MEDIA_URL }}{{ user_profile.picture }}" alt="{{ selected_user.username }}'s profile image" />
+                        <div class="user-info">
+                            {% if user.is_authenticated %}
+                            <div class="profile-pic">
+                            <a href="{% url 'profile' user.username %}"><img src="{{ MEDIA_URL }}{{ request.user.userprofile.picture }}" alt="{{ request.user.username }}'s profile image" /></a>
+                            </div>
                             {% else %}
-                            <img class="m-1 profile-pic" src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="Placeholder image" />
+                            <a href="{% url 'profile' user.username %}"><img class="default-profile-pic" src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="Placeholder image"/></a>
                             {% endif %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.username %}">Profile</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=">Logout</a></li>
@@ -52,9 +52,9 @@
             </nav>
         </header>
         <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-1 d-none d-md-block bg-light sidebar">
-                    <div class="w-75 ml-3">
+            <div class="row" style="margin-top: 3vh;">
+                <nav class="col-md-1 d-none d-md-block sidebar bg-light" style="background-color: #A5E1AD;">
+                    <div class="w-75 ml-3" style="margin-top: 2vh;">
                         <input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
                     </div>
                     <div class="sidebar-sticky">
@@ -64,7 +64,7 @@
                             {% endblock %}
                         </ul>
                         {% if user.is_authenticated %}
-                        <a class="btn btn-dark btn-sm m-1" href="{% url 'add_photo' %}" style="width:95%;">Add Photo</a>
+                        <a class="btn btn-sm m-1" href="{% url 'add_photo' %}" style="width:95%; background-color: #511281; color: white;">Add Photo</a>
                         {% endif %}
                     </div>
                 </nav>

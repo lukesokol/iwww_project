@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title_block %}
-    Profile for {{ selecteduser.username }}
+    Profile of {{ selected_user.username }}
 {% endblock %}
 
 {% block body_block %}
@@ -31,7 +31,7 @@
                         <label for="id_picture" class="form-label">Picture:</label>
                         <input type="file" name="picture" accept="image/*" id="formFile" class="form-control">
                     </p>
-                    <button class="btn btn-sm btn-primary" type="submit" value="Update">Update</button>
+                    <button class="btn btn-sm m-1" type="submit" value="Update" style="width:100%; background-color: #511281; color: white;">Update</button>
                 </form>
                 {% else %}
                 <p style="padding-left: 10px">

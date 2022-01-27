@@ -6,7 +6,7 @@
 
 {% block body_block %}
     <div class="col-md-4" style="min-height: 90vh;">
-        <a href="{% url 'board' %}" class="btn btn-dark my-3"><span data-feather="chevron-left"></span>Go Back</a>
+        <a href="{% url 'board' %}" class="btn my-3" style="background-color: #511281; color: white;"><span data-feather="chevron-left"></span>Go Back</a>
         <div class="card">
             <form method="POST" action="." enctype="multipart/form-data">
                 {% csrf_token %}
@@ -32,8 +32,9 @@
                     <label>Upload image</label>
                     <input required name="image" type="file" class="form-control-file">
                 </div>
-
-                <button type="submit" class="btn btn-primary m-3">Submit</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-sm m-3 text-center" style="width: 80%; background-color: #511281; color: white;">Submit</button>
+                </div>
             </form>
         </div>
     </div>

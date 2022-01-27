@@ -22,7 +22,7 @@ from django.urls import reverse
 
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, user):
-        return reverse('photos:register_profile')
+        return reverse('register_profile')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

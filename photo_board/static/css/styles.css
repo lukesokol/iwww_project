@@ -1,3 +1,17 @@
+:root {
+    --profile-pic-size: 30px;
+}
+
+.logo {
+    min-height: var(--profile-pic-size);
+    max-height: 45px;
+}
+
+.nav-link-edited {
+    color: #072227;
+    font-weight: 600;
+}
+
 .photo-info {
     padding: 15px;
     margin-bottom: auto;
@@ -6,8 +20,29 @@
     margin-left: 2rem;
 }
 
+.default-profile-pic {
+    max-height: var(--profile-pic-size);
+}
+
+.user-info {
+    display: flex;
+    margin-right: 20px; 
+    margin-left: auto; 
+    align-items: center;
+}
+
 .profile-pic {
-    max-height: 30px;
+    position: relative;
+    width: var(--profile-pic-size);
+    height: var(--profile-pic-size);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic img {
+    position: absolute;
+    height: var(--profile-pic-size);
+    width: auto;
 }
 
 .card-info {
@@ -51,6 +86,38 @@
     transition: 300ms ease-in-out;
 }
 
-.card-columns {
-    column-count: 5;
+@media (max-width: 767.98px) {
+    .user-info {
+        margin: auto;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .user-info a:nth-of-type(1) img{
+        display: none;
+    }
+}
+
+@media (min-width: 575.98px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 767.98px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 991.98px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1199.98px) {
+    .card-columns {
+        column-count: 5;
+    }
 }
