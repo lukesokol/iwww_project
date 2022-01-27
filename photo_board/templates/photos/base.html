@@ -33,7 +33,7 @@
                         {% endif %}
                         {% if user.is_authenticated %}
                         <div class="user-info">
-                            {% if user.is_authenticated %}
+                            {% if user.is_authenticated and request.user.userprofile.picture %}
                             <div class="profile-pic">
                             <a href="{% url 'profile' user.username %}"><img src="{{ MEDIA_URL }}{{ request.user.userprofile.picture }}" alt="{{ request.user.username }}'s profile image" /></a>
                             </div>
