@@ -21,9 +21,9 @@
                     <div class="photo-info shadow">
                         <p>
                             <b>Uploaded by: </b>
-                            {% if user_profile.picture %}
+                            {% if request.user.userprofile.picture %}
                             <a href="{% url 'profile' photo.author %}">
-                                <img class="m-1 profile-pic" src="{{ MEDIA_URL }}{{ user_profile.picture }}" alt="{{ selected_user.username }}'s profile image" />
+                                <img class="m-1 profile-pic" src="{{ MEDIA_URL }}{{ request.user.userprofile.picture }}" alt="{{ selected_user.username }}'s profile image" />
                             {% else %}
                             <a href="{% url 'profile' photo.author %}">
                                 <img class="m-1 profile-pic" src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="Placeholder image" />
